@@ -1,0 +1,8 @@
+{
+  "name": "dsb-front-office",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "f5b9d745"
+}
