@@ -1,0 +1,50 @@
+<ion-content class="ion-padding login-container">
+  <div class="login-wrapper">
+    <div class="logo-container">
+      <ion-img src="assets/logo.png"></ion-img>
+    </div>
+
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          formControlName="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        Email invalide
+      </ion-text>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input
+          type="password"
+          formControlName="password"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Mot de passe requis (min 6 caractères)
+      </ion-text>
+
+      <div class="ion-padding">
+        <ion-button
+          expand="block"
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          Se connecter
+        </ion-button>
+      </div>
+    </form>
+
+    <div class="secondary-actions">
+      <ion-text color="medium">
+        <p>Pas de compte ? <ion-router-link [routerLink]="['/register']">Inscrivez-vous</ion-router-link></p>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

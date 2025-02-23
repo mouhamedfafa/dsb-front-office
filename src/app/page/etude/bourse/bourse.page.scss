@@ -1,0 +1,95 @@
+
+// ion-card-header[_ngcontent-ng-c196195531] {
+//   background: var(--ion-color-primary);
+//   color: white;
+//   border-radius: 10px 10px 0 0;
+// }
+
+.header {
+
+  color: #9ab5fc;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 20px;
+  // background-color: #9ab5fc !important;
+
+  .header-content {
+    max-width: 600px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+body{
+  background: #f4f5f8;
+  .item-inner{
+    background-color: white;
+  }
+}
+
+ion-content {
+  --background: #f4f5f8;
+}
+ion-input{
+  background-color: none;
+
+    // --background: white;
+    --border-radius: 20px;
+    // border: solid 1px #000000;
+    padding: 0;
+    color: black !important;
+}
+ion-card {
+  background-color:#f4f5f8 ;
+  margin: 16px;
+  border-radius: 10px;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-header {
+  background: #0054e9;
+  // base: var(--ion-color-primary, #0054e9) !important;
+  color: white !important;
+  border-radius: 10px 10px 0 0;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+
+}
+
+.upload-button {
+  margin: 8px 0;
+}
+
+.submit-button {
+  margin: 20px 16px;
+  --border-radius: 10px;
+}
+
+ion-item {
+  margin-bottom: 12px;
+  --border-radius: 8px;
+  background-color: white !important;
+}
+
+ion-textarea {
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+.ion-ionpu-date{
+margin-top: 15px;
+}

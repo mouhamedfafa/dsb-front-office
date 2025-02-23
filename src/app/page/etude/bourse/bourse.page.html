@@ -1,0 +1,169 @@
+<div class="">
+  <!-- <ion-toolbar style="--background: #f4f5f8;"> -->
+    <ion-buttons slot="start">
+      <!-- Le bouton "Retour" -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+
+</div>
+
+
+
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Demande de Bourse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form  [formGroup]="scholarshipForm"  (ngSubmit)="submitForm()">
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Informations Personnelles</ion-card-title>
+      </ion-card-header>
+      <ion-card-content formGroupName="personalInfo">
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="lastName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Prénom</ion-label>
+          <ion-input formControlName="firstName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Date de naissance</ion-label>
+          <ion-datetime formControlName="dateOfBirth" displayFormat="DD/MM/YYYY" class="ion-ionpu-date"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Nationalité</ion-label>
+          <ion-input formControlName="nationality" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Adresse</ion-label>
+          <ion-textarea formControlName="address" rows="2"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input formControlName="phone" type="tel"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Informations Académiques -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Informations Académiques</ion-card-title>
+      </ion-card-header>
+      <ion-card-content formGroupName="academicInfo">
+        <ion-item>
+          <ion-label>Niveau d'études actuel</ion-label>
+          <ion-select formControlName="currentLevel">
+            <ion-select-option *ngFor="let level of educationLevels" [value]="level">
+              {{ level }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Établissement</ion-label>
+          <ion-input formControlName="institution" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Filière</ion-label>
+          <ion-input formControlName="major" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Moyenne générale</ion-label>
+          <ion-input formControlName="gpa" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Date de diplôme prévue</ion-label>
+          <ion-datetime formControlName="graduationDate" displayFormat="MM/YYYY" class="ion-ionpu-date"></ion-datetime>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Détails de la Bourse -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Détails de la Bourse</ion-card-title>
+      </ion-card-header>
+      <ion-card-content formGroupName="scholarshipDetails">
+        <ion-item>
+          <ion-label>Type de bourse</ion-label>
+          <ion-select formControlName="type">
+            <ion-select-option *ngFor="let type of scholarshipTypes" [value]="type">
+              {{ type }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Montant demandé (€)</ion-label>
+          <ion-input formControlName="amount" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Date de début souhaitée</ion-label>
+          <ion-datetime formControlName="startDate" displayFormat="MM/YYYY" class="ion-ionpu-date"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Durée (en mois)</ion-label>
+          <ion-input formControlName="duration" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Motivation</ion-label>
+          <ion-textarea formControlName="reason" rows="4"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Documents -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Documents</ion-card-title>
+      </ion-card-header>
+      <ion-card-content formGroupName="documents">
+        <ion-button expand="block" (click)="uploadFile('cv')" [color]="scholarshipForm.get('documents.cvUploaded')?.value ? 'success' : 'primary'" class="upload-button">
+          <ion-icon name="document-outline" slot="start"></ion-icon>
+          CV
+        </ion-button>
+
+        <ion-button expand="block" (click)="uploadFile('transcript')" [color]="scholarshipForm.get('documents.transcriptUploaded')?.value ? 'success' : 'primary'" class="upload-button">
+          <ion-icon name="school-outline" slot="start"></ion-icon>
+          Relevés de notes
+        </ion-button>
+
+        <ion-button expand="block" (click)="uploadFile('motivation')" [color]="scholarshipForm.get('documents.motivationLetterUploaded')?.value ? 'success' : 'primary'" class="upload-button">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          Lettre de motivation
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" type="submit" class="submit-button">
+      Soumettre la demande
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,33 @@
+{
+  "don":
+  {
+  "detail":"Test don 1",
+  "somme": "1234test",
+  "type_don_id": 1,
+  "donneur_numero": "787746622",
+  "donneur_adresse": "KMF"
+  },
+
+"demande":
+    {
+    "detail":"Demande test",
+    "somme": "1234test",
+    "type_demande_id":1
+
+    },
+
+"user" :
+  { "name":"Mouhammadou",
+    "number": "777441256",
+    "adresse": "KMF",
+    "email": "faymouhamed1994@gmail.com",
+    "profils_id" : 1,
+    "password": "Test1234",
+    "password_confirmation": "Test1234",
+    "token": "kbzzdboirfs wcvhkrzjfsvilkzrfdsnicv"
+
+  }
+}
+
+
+

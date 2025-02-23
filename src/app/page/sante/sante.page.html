@@ -1,0 +1,75 @@
+<ion-content>
+  <div class="header">
+    <!-- <ion-toolbar style="--background: #f4f5f8;"> -->
+      <ion-buttons slot="start">
+        <!-- Le bouton "Retour" -->
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+
+    <!-- </ion-toolbar> -->
+
+    <div class="header-content">
+        <div class="profile-container">
+          <ion-avatar>
+            <img src="assets/profil.jpeg" alt="Profile">
+          </ion-avatar>
+          <div class="user-info">
+            <h2>Bienvenue</h2>
+            <p>Mouhamed Faye</p>
+          </div>
+        </div>
+      <!-- <h3>Helping Your Self</h3> -->
+    </div>
+    <div>
+      <ion-card>
+        <img src="assets/medicale.png" alt="">
+      </ion-card>
+    </div>
+  </div>
+  <div class="search-container">
+    <ion-searchbar class="searchInput"
+  [(ngModel)]="searchQuery"
+
+  placeholder="Rechercher..."
+  animated
+></ion-searchbar>
+  </div>
+    <div class="grid-container">
+      <ion-card *ngFor="let item of menuItems" [routerLink]="item.route" class="hydrateds">
+        <ion-card-content class="cardElement">
+          <ion-icon [name]="item.icon" size="large"></ion-icon>
+          <h3>{{ item.title }}</h3>
+<!-- {{ user }} -->
+<!-- <p>{{ user?.email }}</p> -->
+<!-- <p>{{ item.description }}</p> -->
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+
+  <!-- <div class="campaigns-section">
+    <h2>Trouver le Soutien Dont Vous Avez Besoin</h2>
+    <ion-list>
+      <ion-card
+        *ngFor="let campaign of filterCampaigns()"
+        (click)="navigateToCampaignDetails(campaign.id)"
+      >
+
+      <ion-card-header>
+          <img [src]="campaign.image" style="width: 100%;background-size: cover;height: auto;" alt="{{ campaign.title }}">
+          <ion-card-title>{{ campaign.title }}</ion-card-title>
+          <ion-card-subtitle>{{ campaign.category }}</ion-card-subtitle>
+        </ion-card-header>
+
+
+        <ion-card-content>
+
+
+          <p>{{ campaign.description }}</p>
+
+
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div> -->
+</ion-content>
